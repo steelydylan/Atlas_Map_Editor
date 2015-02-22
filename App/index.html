@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Atlas Map Editor</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+  </head>
+  <body>
+    <ul class="app-contextMenu" id="contextmenu">
+      <li id="duplicate">Duplicate</li>
+      <li id="delete">Delete</li>
+    </ul>
+    <nav class="app-menubar">
+      <ul class="app-menubar_list">
+        <li><i class="fa fa-pencil active" id="pencil"></i></li>
+        <li><i class="fa fa-eraser" id="eraser"></i></li>
+      </ul>
+    </nav>
+    <div class="app-main">
+    	<div class="app-main_content">
+    		<canvas id="dest"></canvas>
+    	</div>
+    </div>
+    <div class="app-leftSide">
+      <p class="app-leftSide_listBtn" id="addNew">&plus;</p>
+      <ul id="sortable" class="app-leftSide_list">
+        <li class="active" data-id="1">Map1</li>
+      </ul>
+    </div>
+    <div class="app-side">
+      <div class="app-side_canvasWrapper">
+    	 <canvas id="map"></canvas>
+      </div>
+       <div class="app-side_box">
+        <h2 class="app-side_box_title">Map Chip</h2>
+        <table class="app-side_table">
+          <tr>
+            <th>Preview</th>
+            <td>
+              <div class="app-side_box_preview">
+                <img src="images/map.png" class="util-responsiveImage" id="imgPreview" />
+              </div>
+              <input type="file" class="app-side_table_fileInput" id="imgUpload" />
+            </td>
+          </tr>
+          <tr>
+            <th>Size</th>
+            <td>
+              <select name="" id="chipSize">
+                <option value="16">16*16</option>
+                <option value="32">32*32</option>
+                <option value="64">64*64</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>Apply</th>
+            <td><button id="mapChipSet">apply</button><label class="app-side_table_label">the map will be initialized</label></td>
+          </tr>
+        </table>
+       </div>
+       <div class="app-side_box">
+        <h2 class="app-side_box_title">Grid</h2>
+        <table class="app-side_table">
+          <tr>
+            <th>Split</th>
+            <td>
+              <input type="number" id="destSplitX" value="32" class="app-input"/>
+              <input type="number" id="destSplitY" value="24" class="app-input"/>
+            </td>
+          </tr>
+          <tr>
+            <th>Show Lines</th>
+            <td>
+              <label class="app-side_table_label"><input type="checkbox" id="showGrid">show grid lines on the canvas</label>
+            </td>
+          </tr>
+        </table>
+       </div>
+       <div class="app-side_box">
+        <h2 class="app-side_box_title">Layer Style</h2>
+        <table class="app-side_table">
+          <tr>
+            <th>Position</th>
+            <td>
+              <input type="number" value="0" id="posX" class="app-input">
+              <input type="number" value="0" id="posY" class="app-input">
+            </td>
+          </tr>
+          <tr>
+            <th>Color</th>
+            <td>
+              <input type="text" value="#333333" class="app-input" id="changeColor">
+              <label class="app-side_table_label">alpha</label> <input type="number" value="10" class="app-input" id="changeAlpha">
+            </td>
+          </tr>
+        </table>
+       </div>
+       <div class="app-side_export">
+        <button class="app-btn" style="float:right" id="exportMap">Export Map</button>
+        <input type="file" nwsaveas="Map.png" value="" nwworkingdir="/Users/" accept=".png" style="display:none" id="destChooser">
+       </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.hotkeys.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/canvas-toBlob.js"></script>
+    <script src="js/Atlas.js"></script>
+    <script src="js/map.js"></script>
+  </body>
+</html>
